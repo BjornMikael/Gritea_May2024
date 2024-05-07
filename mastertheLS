@@ -1,2 +1,2 @@
-Ls -A --format -m -u -lt -p
+ls -A --format -m --time -u -p
 
