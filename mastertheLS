@@ -1,2 +1,2 @@
-ls -A --format -m --time -u -p
-
+#! /bin/bash
+ls -tmF | tr -d "[:space:]"
