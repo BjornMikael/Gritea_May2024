@@ -1,6 +1,6 @@
 package piscine
 
-func IterativeFactorial(nb int) int { //wow
+func IterativeFactorial(nb int) int { // wow
 	if nb < 0 || nb > 12 {
 		return 0
 	} else if nb == 0 {
