@@ -1,11 +1,5 @@
 package piscine
 
-import (
-	"fmt"
--
-	"piscine/iterativefactorial/piscine"
-)
-
 func IterativeFactorial(nb int) int { // wow
 	if nb < 0 || nb > 12 {
 		return 0
