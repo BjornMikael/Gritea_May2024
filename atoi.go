@@ -1,16 +1,11 @@
 package piscine
 
-import (
-
-)
-
 func Atoi(s string) int {
-	 
 	return convert(clean(s))
 }
 
 func clean(s string) (sign int, abs []rune) {
-	a:=[]rune(s)
+	a := []rune(s)
 
 	a = trimspace1(a)
 	if s == "" {
@@ -43,26 +38,22 @@ func convert(sign int, absStr []rune) int {
 
 	for _, b := range absStr {
 		abs = abs*10 + int(b-'0')
-		
 	}
 
 	return sign * abs
 }
-func trimspace1(a []rune) []rune{
-	for i:=0;i<=len(a)-1;i++{
-	if a[i] == '-' && i != 0 ||a[i] == '+' && i != 0{
-	i='0'
-			
-			return []rune {'0'}
-		}
-		if a[i]==' '|| a[i]=='.'|| a[i]>='a'{
-			
 
-				return []rune {'0'}
-			
+func trimspace1(a []rune) []rune {
+	for i := 0; i <= len(a)-1; i++ {
+		if a[i] == '-' && i != 0 || a[i] == '+' && i != 0 {
+			i = '0'
+
+			return []rune{'0'}
+		}
+		if a[i] == ' ' || a[i] == '.' || a[i] >= 'a' {
+			return []rune{'0'}
 		}
 	}
 
 	return a
-
 }
