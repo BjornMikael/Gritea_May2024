@@ -1,20 +1,38 @@
 package piscine
 
 func Capitalize(s string) string {
-	var newString string
-	isFirst := true
-	for i := 0; i < len(s); i++ {
-		if IsAlpha(string(s[i])) {
-			if isFirst {
-				newString += ToUpper(string(s[i]))
-			} else {
-				newString += ToLower(string(s[i]))
-			}
-			isFirst = false
-		} else {
-			newString += string(s[i])
-			isFirst = true
-		}
+	arr := []rune(s)
+	if arr[0] >= 'a' && arr[0] <= 'z' {
+		arr[0] = rune(arr[0] - 32)
 	}
-	return newString
+
+	len_a := 0
+
+	for index := range arr {
+		len_a = index
+	}
+
+	for i := 1; i <= len_a; i++ {
+		if (arr[i-1] < 'A' || arr[i-1] > 'Z') &&
+			(arr[i] >= 'a' && arr[i] <= 'z') &&
+			(arr[i-1] < 'a' || arr[i-1] > 'z') &&
+			(arr[i-1] < '0' || arr[i-1] > '9') {
+			arr[i] = rune(arr[i] - 32)
+		}
+		if (arr[i-1] >= 'A' && arr[i-1] <= 'Z') &&
+			(arr[i] >= 'A' && arr[i] <= 'Z') {
+			arr[i] = rune(arr[i] + 32)
+		}
+		if (arr[i-1] >= 'a' && arr[i-1] <= 'z') &&
+			(arr[i] >= 'A' && arr[i] <= 'Z') {
+			arr[i] = rune(arr[i] + 32)
+		}
+		if (arr[i-1] >= '0' && arr[i-1] <= '9') &&
+			(arr[i] >= 'A' && arr[i] <= 'Z') {
+			arr[i] = rune(arr[i] + 32)
+		}
+
+	}
+
+	return string(arr)
 }
