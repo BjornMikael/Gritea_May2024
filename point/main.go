@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	_ "github.com/01-edu/z01"
+)
 
 type point struct {
 	x, y int
