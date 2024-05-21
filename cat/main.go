@@ -39,7 +39,6 @@ func main() {
 				os.Exit(1)
 			}
 			printContent(string(content))
-			z01.PrintRune('\n')
 		}
 	}
 }
