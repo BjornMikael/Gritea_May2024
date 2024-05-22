@@ -1,15 +1,17 @@
 package piscine
 
-import "sort"
-
-// Abort returns the median of five int arguments.
 func Abort(a, b, c, d, e int) int {
-	// Create a slice with the five integers
 	numbers := []int{a, b, c, d, e}
 
-	// Sort the slice
-	sort.Ints(numbers)
+	// Manually sorting the array using simple comparison and swapping
+	for i := 0; i < len(numbers); i++ {
+		for j := i + 1; j < len(numbers); j++ {
+			if numbers[i] > numbers[j] {
+				numbers[i], numbers[j] = numbers[j], numbers[i]
+			}
+		}
+	}
 
-	// Return the middle element
+	// The median is the middle element in the sorted list
 	return numbers[2]
 }
