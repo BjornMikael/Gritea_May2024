@@ -15,6 +15,10 @@ func main() {
 		args = args[1:]
 	}
 
+	if len(args) == 0 {
+		return
+	}
+
 	for _, arg := range args {
 		if n, valid := stringToInt(arg); valid && n >= 1 && n <= 26 {
 			if upper {
