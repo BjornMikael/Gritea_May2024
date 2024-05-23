@@ -1,9 +1,19 @@
 package piscine
 
 func Unmatch(a []int) int {
-	var result uint
+	seen := make(map[int]bool)
+
 	for _, num := range a {
-		result ^= uint(num)
+		if seen[num] {
+			delete(seen, num)
+		} else {
+			seen[num] = true
+		}
 	}
-	return int(result)
+
+	for num := range seen {
+		return num
+	}
+
+	return -1
 }
