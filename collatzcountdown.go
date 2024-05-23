@@ -1,4 +1,3 @@
-
 package piscine
 
 // CollatzCountdown returns the number of steps to reach 1 using the Collatz sequence.
