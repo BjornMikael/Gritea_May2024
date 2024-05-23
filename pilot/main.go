@@ -10,7 +10,7 @@ type Pilot struct {
 	Aircraft int
 }
 
-// Define the AIRCRAFT1 constant
+// Define the constant AIRCRAFT1
 const AIRCRAFT1 = 1
 
 func main() {
