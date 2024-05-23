@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-		"piscine/iterativefactorial/piscine"
+	"piscine/iterativefactorial/piscine"
 )
 
 func main() {
