@@ -1,19 +1,21 @@
+// unmatch.go
 package piscine
 
 func Unmatch(a []int) int {
-	seen := make(map[int]bool)
+	countMap := make(map[int]int)
 
+	// Count occurrences of each element
 	for _, num := range a {
-		if seen[num] {
-			delete(seen, num)
-		} else {
-			seen[num] = true
+		countMap[num]++
+	}
+
+	// Find the element with an odd count
+	for num, count := range countMap {
+		if count%2 != 0 {
+			return num
 		}
 	}
 
-	for num := range seen {
-		return num
-	}
-
+	// If all elements have pairs, return -1
 	return -1
 }
