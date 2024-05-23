@@ -7,7 +7,7 @@ func Enigma(a ***int, b *int, c *******int, d ****int) {
 	tempC := *******c
 	tempD := ****d
 
-	// Move values around as specified
+	// Move values around as specified.
 	*******c = tempA
 	****d = tempC
 	*b = tempD
