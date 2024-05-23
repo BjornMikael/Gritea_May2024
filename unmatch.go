@@ -1,9 +1,9 @@
 package piscine
 
 func Unmatch(a []int) int {
-	result := -1
+	var result uint
 	for _, num := range a {
-		result ^= num
+		result ^= uint(num)
 	}
-	return result
+	return int(result)
 }
