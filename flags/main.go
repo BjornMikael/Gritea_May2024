@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/01-edu/z01"
 )
@@ -24,9 +23,9 @@ func main() {
 			printHelp()
 			return
 		}
-		if strings.HasPrefix(arg, "--insert=") || strings.HasPrefix(arg, "-i=") {
-			insertStr = strings.TrimPrefix(arg, "--insert=")
-			insertStr = strings.TrimPrefix(insertStr, "-i=")
+		if hasPrefix(arg, "--insert=") || hasPrefix(arg, "-i=") {
+			insertStr = trimPrefix(arg, "--insert=")
+			insertStr = trimPrefix(insertStr, "-i=")
 		} else if arg == "--order" || arg == "-o" {
 			orderFlag = true
 		}
@@ -57,7 +56,7 @@ func containsHelpFlag(args []string) bool {
 func getStringArg(args []string) string {
 	var stringArg string
 	for _, arg := range args {
-		if !strings.HasPrefix(arg, "--") && !strings.HasPrefix(arg, "-") {
+		if !hasPrefix(arg, "--") && !hasPrefix(arg, "-") {
 			stringArg = arg
 			break
 		}
@@ -100,4 +99,15 @@ func printHelp() {
 	fmt.Println("--order")
 	fmt.Println("  -o")
 	fmt.Println("\t\t This flag will behave like a boolean, if it is called it will order the argument.")
+}
+
+func hasPrefix(s, prefix string) bool {
+	return len(s) >= len(prefix) && s[:len(prefix)] == prefix
+}
+
+func trimPrefix(s, prefix string) string {
+	if hasPrefix(s, prefix) {
+		return s[len(prefix):]
+	}
+	return s
 }
