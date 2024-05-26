@@ -1,12 +1,12 @@
 package piscine
 
 func ListSize(l *List) int {
+
+	n := l.Head
 	size := 0
-
-	for l.Head != nil {
+	for n != nil {
 		size++
-		l.Head = l.Head.Next
+		n = n.Next
 	}
-
 	return size
 }
